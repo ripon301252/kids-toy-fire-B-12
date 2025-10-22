@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import MyProfile from "../pages/MyProfile";
 import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
+import ToyDetails from "../pages/ToyDetails";
+
 
 
 
@@ -16,7 +18,6 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 Component: Home,
-                loader: ()=> fetch('../toy.json'),
             },
             {
                 path: '/myProfile',
@@ -31,6 +32,11 @@ export const router = createBrowserRouter([
                 path: '/signin',
                 Component: Signin,
             },
+            {
+                path: '/toyDetails',
+                Component: ToyDetails,
+            },
+            
 
         ]
     }

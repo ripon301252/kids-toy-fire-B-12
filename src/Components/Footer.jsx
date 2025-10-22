@@ -20,16 +20,16 @@ const Footer = () => {
                     href="https://www.facebook.com/mahfuzur.rahman.98284"
                     target="_blank"
                   >
-                    <i className="fa-brands fa-facebook text-4xl text-[#0090ff]"></i>
+                    <i className="fa-brands fa-facebook text-4xl hover:scale-110 transition-transform duration-300 text-[#0090ff]"></i>
                   </a>
                   <a href="https://x.com/" target="_blank">
-                    <i className="fa-brands fa-x-twitter text-4xl text-white"></i>
+                    <i className="fa-brands fa-x-twitter text-4xl hover:scale-110 transition-transform duration-300 text-white"></i>
                   </a>
                   <a href="https://www.youtube.com/" target="_blank">
-                    <i className="fa-brands fa-youtube text-4xl text-[#ff0000]"></i>
+                    <i className="fa-brands fa-youtube text-4xl hover:scale-110 transition-transform duration-300 text-[#ff0000]"></i>
                   </a>
                   <a href="https://www.instagram.com/?hl=en" target="_blank">
-                    <i className="fa-brands fa-square-instagram text-4xl text-[#dc3973]"></i>
+                    <i className="fa-brands fa-square-instagram text-4xl hover:scale-110 transition-transform duration-300 text-[#dc3973]"></i>
                   </a>
                 </div>
               </div>
@@ -65,7 +65,7 @@ const Footer = () => {
                   placeholder="Inter Your Email"
                 />
                 <div>
-                  <button className="btn hover:bg-[#0e7a81] bg-gradient-to-l from-[#5633e4] to-[#8755ea] ">
+                  <button className="btn hover:bg-[#0e7a81] bg-gradient-to-l from-pink-500 to-red-500 ">
                     <span className=" text-white">Subscribe</span>
                   </button>
                 </div>
