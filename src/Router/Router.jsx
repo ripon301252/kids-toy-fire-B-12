@@ -1,6 +1,11 @@
 import { createBrowserRouter } from "react-router";
 import Root from "../Layout/Root";
 import Home from "../pages/Home";
+import MyProfile from "../pages/MyProfile";
+import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
+
+
 
 
 export const router = createBrowserRouter([
@@ -11,7 +16,22 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 Component: Home,
-            }
+                loader: ()=> fetch('../toy.json'),
+            },
+            {
+                path: '/myProfile',
+                Component: MyProfile,
+            },
+           
+            {
+                path: '/signup',
+                Component: Signup,
+            },
+            {
+                path: '/signin',
+                Component: Signin,
+            },
+
         ]
     }
 ])
