@@ -1,10 +1,14 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
+
 
 const Signin = () => {
-  const {signIn} = use(AuthContext)
+  const { signIn } = use(AuthContext);
 
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSignin = (e) => {
@@ -12,19 +16,23 @@ const Signin = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    
-    signIn(email, password)
-      .then(() =>{
-        // const user = result.user;
-        alert('Your Signin Successful')
-        navigate('/')
-      })
-      .catch(err =>{
-        alert(err.message)
-      })
 
-  }
-  
+    signIn(email, password)
+      .then(() => {
+        // const user = result.user;
+        alert("Your Signin Successful");
+        navigate("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
+   const handleTogglePasswordShow = (e) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div>
       <div className=" flex justify-center min-h-screen items-center">
@@ -43,13 +51,25 @@ const Signin = () => {
               />
               {/* Password */}
               <label className="label">Password</label>
-              <input
-                type="password"
-                name="password"
-                className="input w-full"
-                placeholder="Password"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className="input w-full"
+                  placeholder="Password"
+                  required
+                />
+                <button
+                  onClick={handleTogglePasswordShow}
+                  className=" absolute top-2 right-7 cursor-pointer"
+                >
+                  {showPassword ? (
+                    <IoEyeOff className="text-2xl text-green-500" />
+                  ) : (
+                    <IoEye className="text-2xl text-red-500" />
+                  )}
+                </button>
+              </div>
 
               <div>
                 <a className="link link-hover">Forgot password?</a>

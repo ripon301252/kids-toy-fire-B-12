@@ -9,6 +9,7 @@ const Signup = () => {
 
    const [showPassword, setShowPassword] = useState(false);
    const [nameerror, setNameError] = useState('');
+    const [error, setError] = useState("");
    const navigate = useNavigate()
 
   const handleSignup = (e) => {
@@ -26,6 +27,25 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
     // console.log({ name, photo, email, password });
+
+
+      // part by part password Regex
+    const length6Pattern = /^.{6,}$/;
+    const casePattern = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+    const specialCharPattern = /^(?=.*[!@#$%^&*(),.?":{}|<>]).+$/;
+    if(!length6Pattern.test(password)){
+        console.log('password not match')
+        setError('Password must be 6 character or longer')
+        return;
+    }
+    else if(!casePattern.test(password)){
+        setError('Password must have at least one uppercase and one lower case character')
+        return;
+    }
+    else if(!specialCharPattern.test(password)){
+        setError('Password must contain at least one special character(e. g. ! @ # $ % ^ & *).')
+        return;
+    }
 
     createUser(email, password)
       .then((result) => {
@@ -127,6 +147,7 @@ const Signup = () => {
                 </Link>
               </p>
             </fieldset>
+            {error && <p className="text-red-500 text-center">{error}</p>}
           </form>
         </div>
       </div>

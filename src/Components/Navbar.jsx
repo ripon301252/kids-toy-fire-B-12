@@ -82,7 +82,7 @@ const Navbar = () => {
             onClick={() => setOpen(!open)}
             className="focus:outline-none"
           >
-            {open ? <IoCloseSharp size={25} /> : <GiHamburgerMenu size={25} />}
+            {open ? <IoCloseSharp size={25} className="text-pink-500" /> : <GiHamburgerMenu size={25} className="text-pink-500" />}
           </button>
         </div>
       </div>
