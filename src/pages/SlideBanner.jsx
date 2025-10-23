@@ -2,8 +2,8 @@ import React from "react";
 
 const SlideBanner = () => {
   return (
-    <div className="relative bg-gradient-to-b from-white via-cyan-50 to-white pt-4 pb-10 mt-7 rounded-2xl shadow-lg">
-      <section className="max-w-6xl mx-auto mt-6 px-4 md:px-0 z-10 relative">
+    <div className="relative z-0 bg-gradient-to-b from-white via-cyan-50 to-white pt-4 pb-10 mt-16 rounded-2xl shadow-lg border-1 border-gray-200">
+      <section className="max-w-6xl mx-auto mt-6 px-4 md:px-0 relative">
         <div className="carousel w-full rounded-2xl overflow-hidden relative">
           
           {/* 🌈 Slide 1 */}

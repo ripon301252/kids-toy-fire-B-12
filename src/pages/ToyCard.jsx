@@ -17,7 +17,7 @@ const ToyCard = ({ singleToy }) => {
 
 
   return (
-    <div className="card bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="card bg-white shadow-md rounded-lg overflow-hidden hover:scale-102 transition-transform border-1 border-gray-300">
       {/* Thumbnail */}
       <img src={pictureURL} alt={toyName} className="w-full h-48 object-cover" />
 
