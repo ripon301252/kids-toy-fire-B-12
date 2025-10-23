@@ -32,7 +32,7 @@ const ToyCard = ({ singleToy }) => {
 
         {/* View More Button */}
         <Link to={`/toyDetails/${singleToy.toyId}`}
-          className="btn btn-sm btn-pink w-full border-1 border-pink-600 bg-pink-600  hover:bg-pink-500"
+          className="btn btn-sm btn-pink w-full text-white border-1 border-pink-600 bg-pink-600  hover:bg-pink-500"
         >
           View More
         </Link>

@@ -6,13 +6,6 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  // apiKey: "AIzaSyAVh13Cb2XDTO-dDYdIOZ4Flc7UVx06x5E",
-  // authDomain: "kidstoy-2a4de.firebaseapp.com",
-  // projectId: "kidstoy-2a4de",
-  // storageBucket: "kidstoy-2a4de.firebasestorage.app",
-  // messagingSenderId: "765354031701",
-  // appId: "1:765354031701:web:962bb548dde04dd0ed72dc"
-
   apiKey:import.meta.env.VITE_apiKey,
   authDomain:import.meta.env.VITE_authDomain,
   projectId:import.meta.env.VITE_projectId,
