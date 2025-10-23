@@ -24,6 +24,7 @@ const ToyDetails = () => {
 
   return (
     <div className="container mx-auto p-4 space-y-8">
+      <title>KidsToy - Toy Details</title>
       {/* Toy Details Card */}
       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden">
         {/* Thumbnail */}

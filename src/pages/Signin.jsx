@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 
 const Signin = () => {
@@ -20,11 +21,11 @@ const Signin = () => {
     signIn(email, password)
       .then(() => {
         // const user = result.user;
-        alert("Your Signin Successful");
+        toast.success("Your Signin Successful");
         navigate("/");
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message);
       });
   };
 
@@ -33,22 +34,12 @@ const Signin = () => {
       // signInWithPopup(auth, googleProvider)
       popupGoogleSignin()
         .then((res) => {
-          // const loggedInUser = {
-          //   // displayName: res.user.displayName || "Mahfuzur Rahman",
-          //   // photoURL: res.user.photoURL || "https://i.ibb.co/KjY4bCfy/mahfuz.png",
-          //   displayName: res.user.displayName,
-          //   photoURL: res.user.photoURL,
-          //   email: res.user.email,
-          //   uid: res.user.uid,
-          // };
-          
           setUser(/*loggedInUser*/ res.user);
-         
-          alert("Signin successful");
+          toast.success("Google Signin successful");
         })
         .catch((e) => {
           console.log(e);
-          alert(e.message);
+          toast.error(e.message);
         });
     };
 
@@ -59,6 +50,7 @@ const Signin = () => {
 
   return (
     <div>
+      <title>KidsToy - SignIn</title>
       <div className=" flex justify-center min-h-screen items-center">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleSignin} className="card-body">

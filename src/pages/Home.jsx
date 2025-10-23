@@ -10,7 +10,9 @@ const Home = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
+    
     <div className="max-w-7xl mx-auto px-4">
+      <title>KidsToy - Home</title>
       <SlideBanner />
 
       <h2 className="text-2xl font-bold mt-10 mb-5 text-center">Popular Toys</h2>

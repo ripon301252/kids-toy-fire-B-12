@@ -4,7 +4,7 @@ const MyProfile = () => {
     
     return (
         <div>
-            
+            <title>KidsToy - MyProfile</title>
         </div>
     );
 };

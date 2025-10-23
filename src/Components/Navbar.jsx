@@ -27,7 +27,7 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-pink-500 font-semibold" : "text-gray-700"
+                isActive ? "text-pink-500 font-semibold" : "text-gray-700 hover:text-pink-500"
               }
             >
               Home
@@ -37,7 +37,11 @@ const Navbar = () => {
             <NavLink
               to="/myProfile"
               className={({ isActive }) =>
-                isActive ? "text-pink-500 font-semibold" : "text-gray-700"
+                `font-semibold transition-colors duration-200 ${
+                  isActive
+                    ? "text-pink-500 font-semibold"
+                    : "text-gray-700 hover:text-pink-500"
+                }`
               }
             >
               My Profile
@@ -78,11 +82,12 @@ const Navbar = () => {
 
         {/* Mobile Hamburger */}
         <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setOpen(!open)}
-            className="focus:outline-none"
-          >
-            {open ? <IoCloseSharp size={25} className="text-pink-500" /> : <GiHamburgerMenu size={25} className="text-pink-500" />}
+          <button onClick={() => setOpen(!open)} className="focus:outline-none">
+            {open ? (
+              <IoCloseSharp size={25} className="text-pink-500" />
+            ) : (
+              <GiHamburgerMenu size={25} className="text-pink-500" />
+            )}
           </button>
         </div>
       </div>

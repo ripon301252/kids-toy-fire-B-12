@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const { createUser, setUser, updateUser } = useContext(AuthContext);
@@ -32,25 +33,28 @@ const Signup = () => {
       // part by part password Regex
     const length6Pattern = /^.{6,}$/;
     const casePattern = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
-    const specialCharPattern = /^(?=.*[!@#$%^&*(),.?":{}|<>]).+$/;
+    // const specialCharPattern = /^(?=.*[!@#$%^&*(),.?":{}|<>]).+$/;
     if(!length6Pattern.test(password)){
-        console.log('password not match')
-        setError('Password must be 6 character or longer')
+      setError('Password must be 6 character or longer')
+      toast('Password must be 6 character or longer')
         return;
     }
     else if(!casePattern.test(password)){
         setError('Password must have at least one uppercase and one lower case character')
+        toast('Password must have at least one uppercase and one lower case character')
         return;
     }
-    else if(!specialCharPattern.test(password)){
-        setError('Password must contain at least one special character(e. g. ! @ # $ % ^ & *).')
-        return;
-    }
+    // else if(!specialCharPattern.test(password)){
+    //     setError('Password must contain at least one special character(e. g. ! @ # $ % ^ & *).')
+    //     toast('Password must contain at least one special character(e. g. ! @ # $ % ^ & *).')
+    //     return;
+    // }
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         // console.log(user)
+        toast.success('Your SignUp Successful')
         updateUser({
           displayName: name,
           photoURL: photo,
@@ -60,12 +64,12 @@ const Signup = () => {
             navigate('/signin')
           })
           .catch(err => {
-            alert(err.message)
+            toast.error(err.message)
             setUser(user)
           })
       })
       .catch((err) => {
-        alert(err.message);
+        toast.error(err.message);
       });
   };
 
@@ -76,6 +80,7 @@ const Signup = () => {
 
   return (
     <div>
+      <title>KidsToy - SignUp</title>
       <div className=" flex justify-center min-h-screen items-center">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleSignup} className="card-body">
