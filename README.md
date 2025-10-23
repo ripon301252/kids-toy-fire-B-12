@@ -6,7 +6,7 @@
 A local kids toy store platform to explore, buy, and manage toys easily.
 
 ## Live URL
-[Your Live Site Link]([https://example.com](https://kids-toy-942a66.netlify.app/))
+[Your Live Site Link](https://example.com)
 
 ## Key Features
 - User Authentication (Email/Password & Google Sign-In)
