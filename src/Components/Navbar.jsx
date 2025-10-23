@@ -70,17 +70,17 @@ const Navbar = () => {
               </div>
               <button
                 onClick={handleLogout}
-                className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500 hover:bg-pink-500 text-white transition"
+                className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500  text-white transition"
               >
-                Logout
+                Log Out
               </button>
             </>
           ) : (
             <Link
               to="/signin"
-              className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500 hover:bg-pink-700 text-white"
+              className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500  text-white"
             >
-              Login
+              Sign In
             </Link>
           )}
         </div>

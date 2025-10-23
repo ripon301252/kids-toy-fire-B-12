@@ -79,7 +79,7 @@ const Signin = () => {
               <button
                 type="button"
                 onClick={handleTogglePasswordShow}
-                className="absolute top-2.5 right-3 text-gray-500 hover:text-pink-500 transition-colors"
+                className="absolute top-2.5 right-3 text-gray-500 hover:text-pink-500 transition-colors cursor-pointer"
               >
                 {showPassword ? (
                   <IoEyeOff className="text-2xl" />
@@ -105,7 +105,7 @@ const Signin = () => {
             type="submit"
             className="btn w-full bg-gradient-to-r from-pink-500 to-purple-500 border-none text-white font-semibold hover:scale-105 transition-transform"
           >
-            Login
+            Sign In
           </button>
 
           {/* Divider */}
@@ -119,7 +119,7 @@ const Signin = () => {
           <button
             type="button"
             onClick={handleGoogleSignin}
-            className="flex items-center justify-center gap-3 bg-white text-gray-700 px-5 py-2 rounded-lg w-full border border-gray-200 font-semibold hover:bg-gray-100 shadow-md transition"
+            className="google-btn"
           >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"

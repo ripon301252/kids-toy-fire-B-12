@@ -141,7 +141,7 @@ const Signup = () => {
               />
               <button
                 onClick={handleTogglePasswordShow}
-                className="absolute right-3 top-2.5 text-xl text-purple-500"
+                className="absolute right-3 top-2.5 text-xl text-purple-500 cursor-pointer"
               >
                 {showPassword ? <IoEyeOff /> : <IoEye />}
               </button>
@@ -151,7 +151,7 @@ const Signup = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="btn bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold w-full mt-4 hover:opacity-90"
+            className="btn bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold w-full mt-4 hover:opacity-90 hover:scale-105 transition-transform"
           >
             Sign Up
           </button>
@@ -175,7 +175,7 @@ const Signup = () => {
                 })
                 .catch((e) => toast.error(e.message));
             }}
-            className="flex items-center justify-center gap-3 bg-white text-gray-700 px-5 py-2 rounded-lg w-full border border-gray-200 font-semibold hover:bg-gray-100 shadow-md transition"
+            className="google-btn"
           >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -189,7 +189,7 @@ const Signup = () => {
             Already have an account?{" "}
             <Link
               to={`/signin`}
-              className="text-blue-500 hover:underline font-medium"
+              className="text-blue-500 hover:underline font-medium "
             >
               Sign In
             </Link>
