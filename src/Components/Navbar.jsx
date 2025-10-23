@@ -4,6 +4,7 @@ import { AuthContext } from "../Context/AuthContext";
 import userImg from "../assets/user.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -11,8 +12,12 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logOut()
-      .then(() => alert("Logged out successfully"))
-      .catch((err) => alert(err.message));
+      .then(() => {
+        toast.success("Logged out successfully")
+      })
+      .catch((err) => {
+        toast.error(err.message)
+      });
   };
 
   return (

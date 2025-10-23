@@ -20,7 +20,7 @@ const ToyDetails = () => {
 
   const handleTryNow = (e) => {
     e.preventDefault();
-    toast.success("You are Success");
+    toast.success("Success! Your request is submitted");
   };
 
   return (

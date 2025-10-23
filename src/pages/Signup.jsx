@@ -5,7 +5,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import { toast } from "react-toastify";
 
 const Signup = () => {
-  const { createUser, setUser, updateUser } = useContext(AuthContext);
+  const { createUser, setUser, updateUser, popupGoogleSignin } = useContext(AuthContext);
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [nameerror, setNameError] = useState("");
@@ -84,7 +84,8 @@ const Signup = () => {
           Create Account
         </h1>
         <p className="text-center text-gray-500 mb-4">
-          Join <span className="font-semibold text-blue-500">KidsToy</span> today!
+          Join <span className="font-semibold text-blue-500">KidsToy</span>{" "}
+          today!
         </p>
 
         <form onSubmit={handleSignup} className="space-y-3">
@@ -153,6 +154,35 @@ const Signup = () => {
             className="btn bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold w-full mt-4 hover:opacity-90"
           >
             Sign Up
+          </button>
+
+          {/* Divider */}
+          <div className="flex items-center justify-center gap-2 my-2">
+            <div className="h-px w-16 bg-gray-300"></div>
+            <span className="text-gray-500 text-sm">or</span>
+            <div className="h-px w-16 bg-gray-300"></div>
+          </div>
+
+          {/* Google Signin */}
+          <button
+            type="button"
+            onClick={() => {
+              popupGoogleSignin()
+                .then((res) => {
+                  setUser(res.user);
+                  toast.success("Google SignUp Successful");
+                  navigate("/"); // অথবা যেই page redirect করতে চাও
+                })
+                .catch((e) => toast.error(e.message));
+            }}
+            className="flex items-center justify-center gap-3 bg-white text-gray-700 px-5 py-2 rounded-lg w-full border border-gray-200 font-semibold hover:bg-gray-100 shadow-md transition"
+          >
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="google"
+              className="w-5 h-5"
+            />
+            Continue with Google
           </button>
 
           <p className="text-center mt-3 text-sm text-gray-700">

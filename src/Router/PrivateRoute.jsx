@@ -12,6 +12,7 @@ const PrivateRoute = ({ children }) => {
 
     return (
         <div>
+            <title>KidsToy - 404 Not Found</title>
             <Navigate state={location?.pathname} to={`/signin`}></Navigate>
         </div>
     );
