@@ -1,11 +1,11 @@
 import React from "react";
-import { Link, useNavigate } from "react-router";
+import { Link  } from "react-router";
 
 const ToyCard = ({ singleToy }) => {
-    console.log(singleToy)
-  const navigate = useNavigate();
+  console.log(singleToy)
+ 
+  // const navigate = useNavigate();
   const {
-    id,
     toyName,
     subCategory,
     sellerName,
@@ -13,8 +13,7 @@ const ToyCard = ({ singleToy }) => {
     price,
     availableQuantity,
     pictureURL,
-  } = singleToy;
-
+  } = singleToy || {};
 
 
   return (
@@ -32,7 +31,7 @@ const ToyCard = ({ singleToy }) => {
         <p className="text-lg font-semibold text-pink-500 mb-3">${price}</p>
 
         {/* View More Button */}
-        <Link to={`/toyDetails`}
+        <Link to={`/toyDetails/${singleToy.toyId}`}
           className="btn btn-sm btn-pink w-full border-1 border-pink-600 bg-pink-600  hover:bg-pink-500"
         >
           View More

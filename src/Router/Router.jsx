@@ -5,6 +5,8 @@ import MyProfile from "../pages/MyProfile";
 import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
 import ToyDetails from "../pages/ToyDetails";
+import Error from "../pages/Error";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -14,6 +16,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         Component: Root,
+        // errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -23,7 +26,6 @@ export const router = createBrowserRouter([
                 path: '/myProfile',
                 Component: MyProfile,
             },
-           
             {
                 path: '/signup',
                 Component: Signup,
@@ -33,11 +35,11 @@ export const router = createBrowserRouter([
                 Component: Signin,
             },
             {
-                path: '/toyDetails',
-                Component: ToyDetails,
+                path: '/toyDetails/:id',
+                element: <PrivateRoute>
+                    <ToyDetails></ToyDetails>
+                </PrivateRoute>,
             },
-            
-
         ]
     }
 ])

@@ -57,7 +57,7 @@ const Signup = () => {
         })
           .then(()=>{
             setUser({...user, displayName: name, photoURL: photo,});
-            navigate('/')
+            navigate('/signin')
           })
           .catch(err => {
             alert(err.message)

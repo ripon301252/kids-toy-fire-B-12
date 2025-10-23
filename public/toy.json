@@ -118,5 +118,30 @@
     "description": "Classic Monopoly board game to enjoy hours of family fun and strategy.",
     "pictureURL": "https://i.ibb.co.com/xqmbXc74/p1.jpg",
     "subCategory": "Board Games"
+  },
+  {
+    "toyId": 11,
+    "toyName": "Lego Classic Bricks",
+    "sellerName": "Toys R Us Local",
+    "sellerEmail": "contact@toysruslocal.com",
+    "price": 49.99,
+    "rating": 4.7,
+    "availableQuantity": 75,
+    "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving.",
+    "pictureURL": "https://i.ibb.co.com/fVFdZ6mH/p11.jpg",
+    "subCategory": "Building Blocks"
+  },
+    {
+    "toyId": 12,
+    "toyName": "Hot Wheels Super Loop",
+    "sellerName": "Speedy Toys",
+    "sellerEmail": "info@speedytoys.com",
+    "price": 29.99,
+    "rating": 4.5,
+    "availableQuantity": 50,
+    "description": "Exciting Hot Wheels track set with loops and jumps for endless racing fun.",
+    "pictureURL": "https://i.ibb.co.com/kjNK8Xt/p12.jpg",
+    "subCategory": "Vehicles"
   }
+
 ]
