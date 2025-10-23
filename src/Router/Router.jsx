@@ -11,8 +11,6 @@ import ForgetPassword from "../pages/ResetPassword";
 
 
 
-
-
 export const router = createBrowserRouter([
     {
         path: '/',

@@ -9,7 +9,7 @@ const SlideBanner = () => {
           {/* 🌈 Slide 1 */}
           <div id="slide1" className="carousel-item relative w-full">
             <img
-              src="https://i.ibb.co/DPGYC3bg/b1.jpg"
+              src="https://i.ibb.co.com/99z8tpWw/istockphoto-589961490-612x612.jpg"
               className="w-full h-60 sm:h-80 md:h-[450px] object-cover"
               alt="Slide 1"
             />
@@ -34,7 +34,7 @@ const SlideBanner = () => {
           {/* 🌈 Slide 2 */}
           <div id="slide2" className="carousel-item relative w-full">
             <img
-              src="https://i.ibb.co/PZcnp4Ww/b2.jpg"
+              src="https://i.ibb.co.com/HLnSMDht/istockphoto-1412025000-612x612.jpg"
               className="w-full h-60 sm:h-80 md:h-[450px] object-cover"
               alt="Slide 2"
             />
@@ -59,7 +59,7 @@ const SlideBanner = () => {
           {/* 🌈 Slide 3 */}
           <div id="slide3" className="carousel-item relative w-full">
             <img
-              src="https://i.ibb.co/d03ss63j/b3.jpg"
+              src="https://i.ibb.co.com/TM43VkHg/istockphoto-1069600900-612x612.jpg"
               className="w-full h-60 sm:h-80 md:h-[450px] object-cover"
               alt="Slide 3"
             />
