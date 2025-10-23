@@ -10,6 +10,7 @@ import {
   updateProfile,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 
 
@@ -47,6 +48,13 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+
+  // reset password
+    const passwordReset = (email) => {
+      return sendPasswordResetEmail(auth, email);
+    };
+  
+
   // observer
   useEffect(() => {
     const unsubsCribe = onAuthStateChanged(auth, (currentUser) => {
@@ -65,6 +73,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     updateUser,
     popupGoogleSignin,
+    passwordReset,
   };
 
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;

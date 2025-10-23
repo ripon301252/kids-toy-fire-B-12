@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { useToy } from "../Hook/usetoy";
 import { useParams } from "react-router";
 
@@ -19,7 +20,7 @@ const ToyDetails = () => {
 
   const handleTryNow = (e) => {
     e.preventDefault();
-    alert("You are Success");
+    toast.success("You are Success");
   };
 
   return (

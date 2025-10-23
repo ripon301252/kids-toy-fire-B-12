@@ -7,6 +7,7 @@ import Signin from "../pages/Signin";
 import ToyDetails from "../pages/ToyDetails";
 import Error from "../pages/Error";
 import PrivateRoute from "./PrivateRoute";
+import ForgetPassword from "../pages/ResetPassword";
 
 
 
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signin',
                 Component: Signin,
+            },
+            {
+                path: '/forgotPassword',
+                Component: ForgetPassword,
             },
             {
                 path: '/toyDetails/:id',

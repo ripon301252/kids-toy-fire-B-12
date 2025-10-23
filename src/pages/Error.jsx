@@ -23,7 +23,7 @@ const Error = () => {
       </Link>
 
       <div className="absolute bottom-5 text-sm text-gray-400">
-        © {new Date().getFullYear()} ToyTopia. All rights reserved.
+        © {new Date().getFullYear()} KidsToy. All rights reserved.
       </div>
     </div>
   );

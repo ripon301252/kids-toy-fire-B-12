@@ -1,160 +1,179 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
-import { IoEye } from "react-icons/io5";
-import { IoEyeOff } from "react-icons/io5";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 import { toast } from "react-toastify";
 
 const Signup = () => {
   const { createUser, setUser, updateUser } = useContext(AuthContext);
-
-   const [showPassword, setShowPassword] = useState(false);
-   const [nameerror, setNameError] = useState('');
-    const [error, setError] = useState("");
-   const navigate = useNavigate()
+  const [success, setSuccess] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [nameerror, setNameError] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    if(name.length < 5){
-      setNameError('Name should be more then 5 character');
+    if (name.length < 5) {
+      setNameError("Name should be more than 5 characters");
       return;
-    }
-    else{
-      setNameError('')
+    } else {
+      setNameError("");
     }
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log({ name, photo, email, password });
 
+    setError("");
+    setSuccess(false);
 
-      // part by part password Regex
     const length6Pattern = /^.{6,}$/;
     const casePattern = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
-    // const specialCharPattern = /^(?=.*[!@#$%^&*(),.?":{}|<>]).+$/;
-    if(!length6Pattern.test(password)){
-      setError('Password must be 6 character or longer')
-      toast('Password must be 6 character or longer')
-        return;
+
+    if (!length6Pattern.test(password)) {
+      setError("Password must be 6 characters or longer");
+      toast.error("Password must be 6 characters or longer");
+      return;
+    } else if (!casePattern.test(password)) {
+      setError(
+        "Password must have at least one uppercase and one lowercase character"
+      );
+      toast.error(
+        "Password must have at least one uppercase and one lowercase character"
+      );
+      return;
     }
-    else if(!casePattern.test(password)){
-        setError('Password must have at least one uppercase and one lower case character')
-        toast('Password must have at least one uppercase and one lower case character')
-        return;
-    }
-    // else if(!specialCharPattern.test(password)){
-    //     setError('Password must contain at least one special character(e. g. ! @ # $ % ^ & *).')
-    //     toast('Password must contain at least one special character(e. g. ! @ # $ % ^ & *).')
-    //     return;
-    // }
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user)
-        toast.success('Your SignUp Successful')
+        setSuccess(true);
+        e.target.reset();
+        toast.success("Your SignUp Successful");
         updateUser({
           displayName: name,
           photoURL: photo,
         })
-          .then(()=>{
-            setUser({...user, displayName: name, photoURL: photo,});
-            navigate('/signin')
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            navigate("/signin");
           })
-          .catch(err => {
-            toast.error(err.message)
-            setUser(user)
-          })
+          .catch((err) => {
+            toast.error(err.message);
+            setUser(user);
+          });
       })
       .catch((err) => {
         toast.error(err.message);
       });
   };
 
-   const handleTogglePasswordShow = (e) => {
+  const handleTogglePasswordShow = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
 
   return (
-    <div>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-tr from-pink-100 via-purple-100 to-blue-100 px-4">
       <title>KidsToy - SignUp</title>
-      <div className=" flex justify-center min-h-screen items-center">
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <form onSubmit={handleSignup} className="card-body">
-            <h1 className="text-2xl font-bold text-center mb-3">Sign Up</h1>
-            <fieldset className="fieldset">
-              {/* Name */}
-              <label className="label">Name</label>
+
+      <div className="card w-full max-w-md bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl p-6 border border-gray-200">
+        <h1 className="text-3xl font-bold text-center mb-2 text-purple-600">
+          Create Account
+        </h1>
+        <p className="text-center text-gray-500 mb-4">
+          Join <span className="font-semibold text-blue-500">KidsToy</span> today!
+        </p>
+
+        <form onSubmit={handleSignup} className="space-y-3">
+          {/* Name */}
+          <div>
+            <label className="label-text font-semibold">Name</label>
+            <input
+              type="text"
+              name="name"
+              className="input input-bordered w-full focus:ring-2 focus:ring-purple-400"
+              placeholder="Your Name"
+              required
+            />
+            {nameerror && (
+              <p className="text-xs text-red-500 mt-1">{nameerror}</p>
+            )}
+          </div>
+
+          {/* Photo URL */}
+          <div>
+            <label className="label-text font-semibold">Photo URL</label>
+            <input
+              type="text"
+              name="photo"
+              className="input input-bordered w-full focus:ring-2 focus:ring-purple-400"
+              placeholder="Your Photo URL"
+              required
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="label-text font-semibold">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="input input-bordered w-full focus:ring-2 focus:ring-purple-400"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="label-text font-semibold">Password</label>
+            <div className="relative">
               <input
-                type="text"
-                name="name"
-                className="input w-full"
-                placeholder="Name"
+                type={showPassword ? "text" : "password"}
+                name="password"
+                className="input input-bordered w-full focus:ring-2 focus:ring-purple-400"
+                placeholder="Password"
                 required
               />
-              {nameerror && <p className="text-xs text-red-500">{nameerror}</p>}
-
-              {/* photo url */}
-              <label className="label">Photo URL</label>
-              <input
-                type="text"
-                name="photo"
-                className="input w-full"
-                placeholder="Photo URL"
-                required
-              />
-
-              {/* Email */}
-              <label className="label">Email</label>
-              <input
-                type="email"
-                name="email"
-                className="input w-full"
-                placeholder="Email"
-                required
-              />
-
-              {/* Password */}
-              <label className="label">Password</label>
-              <div className="relative">
-                <input
-                   type={showPassword ? "text" : "password"}
-                  name="password"
-                  className="input w-full"
-                  placeholder="Password"
-                  required
-                />
-                <button
-                  onClick={handleTogglePasswordShow}
-                  className=" absolute top-2 right-7 cursor-pointer"
-                >
-                  {showPassword ? (
-                    <IoEyeOff className="text-2xl text-green-500" />
-                  ) : (
-                    <IoEye className="text-2xl text-red-500" />
-                  )}
-                </button>
-              </div>
-
-              <button type="submit" className="btn btn-neutral mt-4">
-                Sign Up
+              <button
+                onClick={handleTogglePasswordShow}
+                className="absolute right-3 top-2.5 text-xl text-purple-500"
+              >
+                {showPassword ? <IoEyeOff /> : <IoEye />}
               </button>
-              <p className="text-accent text-center font-semibold mt-3">
-                Already Have An Account ? please{" "}
-                <Link
-                  to={`/signin`}
-                  className="text-blue-500 underline text-[13px]"
-                >
-                  Sign In
-                </Link>
-              </p>
-            </fieldset>
-            {error && <p className="text-red-500 text-center">{error}</p>}
-          </form>
-        </div>
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="btn bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold w-full mt-4 hover:opacity-90"
+          >
+            Sign Up
+          </button>
+
+          <p className="text-center mt-3 text-sm text-gray-700">
+            Already have an account?{" "}
+            <Link
+              to={`/signin`}
+              className="text-blue-500 hover:underline font-medium"
+            >
+              Sign In
+            </Link>
+          </p>
+
+          {success && (
+            <p className="text-green-500 text-center font-semibold">
+              Account created successfully!
+            </p>
+          )}
+          {error && (
+            <p className="text-red-500 text-center font-semibold">{error}</p>
+          )}
+        </form>
       </div>
     </div>
   );
