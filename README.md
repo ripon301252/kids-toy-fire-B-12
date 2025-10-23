@@ -1,16 +1,30 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# KidsToy
 
-Currently, two official plugins are available:
+## Purpose
+A local kids toy store platform to explore, buy, and manage toys easily.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live URL
+[Your Live Site Link](https://example.com)
 
-## React Compiler
+## Key Features
+- User Authentication (Email/Password & Google Sign-In)
+- Protected Routes (My Profile)
+- Dynamic Profile Update (Name & Photo)
+- Responsive Navbar & Mobile Menu
+- Slider/Carousel for featured toys
+- Popular Toys Section with Cards
+- 404 Not Found Page
+- Toast/SweetAlert for notifications
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## NPM Packages Used
+- react
+- react-dom
+- react-router
+- firebase
+- react-icons
+- react-toastify
+- tailwindcss
+- daisyui
+- axios
