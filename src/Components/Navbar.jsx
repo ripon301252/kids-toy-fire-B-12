@@ -38,7 +38,7 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-pink-500 font-semibold"
+                  ? "text-pink-500 underline font-semibold"
                   : "text-gray-700 hover:text-pink-500"
               }
             >
@@ -50,7 +50,7 @@ const Navbar = () => {
               to="/myProfile"
               className={({ isActive }) =>
                 isActive
-                  ? "text-pink-500 font-semibold"
+                  ? "text-pink-500 underline font-semibold"
                   : "text-gray-700 hover:text-pink-500"
               }
             >
@@ -113,7 +113,7 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-pink-500 font-semibold" : "text-gray-700"
+                isActive ? "text-pink-500 underline font-semibold" : "text-gray-700"
               }
               onClick={() => setOpen(false)}
             >
@@ -124,7 +124,7 @@ const Navbar = () => {
             <NavLink
               to="/myProfile"
               className={({ isActive }) =>
-                isActive ? "text-pink-500 font-semibold" : "text-gray-700"
+                isActive ? "text-pink-500 underline font-semibold" : "text-gray-700"
               }
               onClick={() => setOpen(false)}
             >
