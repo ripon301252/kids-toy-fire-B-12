@@ -24,10 +24,12 @@ const ToyDetails = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 space-y-8">
+    <div className="container mx-auto p-4 space-y-8 py-8">
       <title>KidsToy - Toy Details</title>
+
       {/* Toy Details Card */}
       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden">
+
         {/* Thumbnail */}
         <div className="md:w-1/2 flex justify-center items-center bg-gray-50 p-4">
           <img

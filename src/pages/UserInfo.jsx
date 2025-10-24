@@ -60,6 +60,7 @@ const UserInfo = () => {
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
               className="input input-bordered w-full focus:ring-2 focus:ring-purple-400"
+              required
             />
           </div>
 
@@ -71,6 +72,7 @@ const UserInfo = () => {
               onChange={(e) => setPhotoURL(e.target.value)}
               placeholder="Enter photo URL"
               className="input input-bordered w-full focus:ring-2 focus:ring-purple-400"
+              required
             />
           </div>
 

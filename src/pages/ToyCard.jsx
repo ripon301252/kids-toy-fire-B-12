@@ -4,7 +4,6 @@ import { Link  } from "react-router";
 const ToyCard = ({ singleToy }) => {
   console.log(singleToy)
  
-  // const navigate = useNavigate();
   const {
     toyName,
     subCategory,
@@ -21,7 +20,7 @@ const ToyCard = ({ singleToy }) => {
       {/* Thumbnail */}
       <img src={pictureURL} alt={toyName} className="w-full h-48 object-cover" />
 
-      {/* Card Body */}
+      {/* Card */}
       <div className="p-4">
         <h2 className="text-lg font-bold mb-1 text-cyan-400">{toyName}</h2>
         <p className="text-sm text-gray-500 mb-1">Category: {subCategory}</p>

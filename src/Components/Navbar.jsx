@@ -7,19 +7,24 @@ import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loading } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
   const handleLogout = () => {
     logOut()
-      .then(() => {
-        toast.success("Logged out successfully")
-      })
-      .catch((err) => {
-        toast.error(err.message)
-      });
+      .then(() => toast.success("Logged out successfully"))
+      .catch((err) => toast.error(err.message));
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
+
+ 
   return (
     <nav className="bg-white shadow-md px-4 md:px-6 py-4 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -32,7 +37,9 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-pink-500 font-semibold" : "text-gray-700 hover:text-pink-500"
+                isActive
+                  ? "text-pink-500 font-semibold"
+                  : "text-gray-700 hover:text-pink-500"
               }
             >
               Home
@@ -42,11 +49,9 @@ const Navbar = () => {
             <NavLink
               to="/myProfile"
               className={({ isActive }) =>
-                `font-semibold transition-colors duration-200 ${
-                  isActive
-                    ? "text-pink-500 font-semibold"
-                    : "text-gray-700 hover:text-pink-500"
-                }`
+                isActive
+                  ? "text-pink-500 font-semibold"
+                  : "text-gray-700 hover:text-pink-500"
               }
             >
               My Profile
@@ -70,15 +75,15 @@ const Navbar = () => {
               </div>
               <button
                 onClick={handleLogout}
-                className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500  text-white transition"
+                className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500 transition"
               >
-                Log Out
+                Sign Out
               </button>
             </>
           ) : (
             <Link
               to="/signin"
-              className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500  text-white"
+              className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500"
             >
               Sign In
             </Link>
@@ -133,17 +138,17 @@ const Navbar = () => {
                   handleLogout();
                   setOpen(false);
                 }}
-                className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500 hover:bg-pink-500 text-white w-full"
+                className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500 w-full"
               >
-                Logout
+                Sign Out
               </button>
             ) : (
               <Link
                 to="/signin"
                 onClick={() => setOpen(false)}
-                className="btn btn-sm bg-gradient-to-l border-pink-500 from-pink-500 to-red-500 hover:bg-pink-700 text-white w-full"
+                className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500 w-full"
               >
-                Login
+                Sign In
               </Link>
             )}
           </li>

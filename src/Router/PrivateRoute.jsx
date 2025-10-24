@@ -1,21 +1,24 @@
-import React, { use } from 'react';
-import { AuthContext } from '../Context/AuthContext';
-import { Navigate, useLocation } from 'react-router';
+import React, { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { Navigate, useLocation } from "react-router";
 
 const PrivateRoute = ({ children }) => {
-    const { user } = use(AuthContext)
-    const location = useLocation()
+  const { user, loading } = useContext(AuthContext);
+  const location = useLocation();
 
-    if(user){
-        return children;
-    }
-
+  if (loading) {
     return (
-        <div>
-            <title>KidsToy - 404 Not Found</title>
-            <Navigate state={location?.pathname} to={`/signin`}></Navigate>
-        </div>
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
     );
+  }
+
+  if (user) {
+    return children;
+  }
+
+  return <Navigate state={location?.pathname} to="/signin" />;
 };
 
 export default PrivateRoute;

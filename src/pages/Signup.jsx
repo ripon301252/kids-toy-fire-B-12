@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link,  useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { toast } from "react-toastify";
 
 const Signup = () => {
-  const { createUser, setUser, updateUser, popupGoogleSignin } = useContext(AuthContext);
+  const { createUser, setUser, updateUser, popupGoogleSignin} = useContext(AuthContext);
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [nameerror, setNameError] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ const Signup = () => {
     const name = form.name.value;
     if (name.length < 5) {
       setNameError("Name should be more than 5 characters");
+      toast.error("Name should be more than 5 characters")
       return;
     } else {
       setNameError("");
@@ -37,12 +39,8 @@ const Signup = () => {
       toast.error("Password must be 6 characters or longer");
       return;
     } else if (!casePattern.test(password)) {
-      setError(
-        "Password must have at least one uppercase and one lowercase character"
-      );
-      toast.error(
-        "Password must have at least one uppercase and one lowercase character"
-      );
+      setError("Password must have at least one uppercase and one lowercase character");
+      toast.error("Password must have at least one uppercase and one lowercase character");
       return;
     }
 
@@ -58,7 +56,7 @@ const Signup = () => {
         })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            navigate("/signin");
+            navigate("/");
           })
           .catch((err) => {
             toast.error(err.message);
@@ -76,7 +74,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-tr from-pink-100 via-purple-100 to-blue-100 px-4">
+    <div className="flex justify-center items-center md:min-h-screen py-5 bg-gradient-to-tr from-pink-100 via-purple-100 to-blue-100 px-4">
       <title>KidsToy - SignUp</title>
 
       <div className="card w-full max-w-md bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl p-6 border border-gray-200">
@@ -171,9 +169,12 @@ const Signup = () => {
                 .then((res) => {
                   setUser(res.user);
                   toast.success("Google SignUp Successful");
-                  navigate("/"); // অথবা যেই page redirect করতে চাও
+                  navigate("/"); 
                 })
-                .catch((e) => toast.error(e.message));
+                .catch((e) => {
+                  toast.error(e.message)
+                });
+                
             }}
             className="google-btn"
           >

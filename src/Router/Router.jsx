@@ -9,40 +9,42 @@ import Error from "../pages/Error";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../pages/ResetPassword";
 
-
-
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        Component: Root,
-        errorElement: <Error></Error>,
-        children: [
-            {
-                path: '/',
-                Component: Home,
-            },
-            {
-                path: '/myProfile',
-                Component: MyProfile,
-            },
-            {
-                path: '/signup',
-                Component: Signup,
-            },
-            {
-                path: '/signin',
-                Component: Signin,
-            },
-            {
-                path: '/forgotPassword',
-                Component: ForgetPassword,
-            },
-            {
-                path: '/toyDetails/:id',
-                element: <PrivateRoute>
-                    <ToyDetails></ToyDetails>
-                </PrivateRoute>,
-            },
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/myProfile",
+        element: <PrivateRoute>
+          <MyProfile />
+        </PrivateRoute>,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/signin",
+        element: <Signin />,
+      },
+      {
+        path: "/forgotPassword",
+        element: <ForgetPassword />,
+      },
+      {
+        path: "/toyDetails/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+]);

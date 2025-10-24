@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { toast } from "react-toastify";
@@ -9,6 +9,8 @@ const Signin = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+ 
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -22,10 +24,11 @@ const Signin = () => {
       .then(() => {
         e.target.reset();
         toast.success("Your Signin Successful");
-        navigate("/");
+        navigate(location?.state || "/");
       })
       .catch((err) => {
         toast.error(err.message);
+        
       });
   };
 
@@ -34,9 +37,11 @@ const Signin = () => {
       .then((res) => {
         setUser(res.user);
         toast.success("Google Signin successful");
+        navigate(location?.state || "/");
       })
       .catch((e) => {
         toast.error(e.message);
+        
       });
   };
 
@@ -46,7 +51,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 px-4">
+    <div className="md:min-h-screen py-5 flex items-center justify-center bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 px-4">
       <title>KidsToy - SignIn</title>
 
       <div className="card w-full max-w-md bg-white/90 backdrop-blur-xl shadow-2xl border border-white/50 rounded-2xl p-8">

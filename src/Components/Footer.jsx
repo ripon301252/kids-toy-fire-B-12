@@ -8,7 +8,6 @@ const Footer = () => {
             <div className="md:flex flex-cols-1 md:justify-between items-center py-10 mb-5 md:mx-20">
               <div className="mb-7 items-center md:ml-0 mx-5">
                 <div className="flex items-center gap-2 mb-1">
-                  {/* <img src={Img} alt={Img} className="w-8" /> */}
                   <a className=" text-2xl font-bold">KidsToy</a>
                 </div>
                 <p className="">Location: av. Washington 165, NY 54003</p>
@@ -54,8 +53,6 @@ const Footer = () => {
                  
                 </ul>
               </div>
-    
-             
     
               <div id="contact" className="md:ml-0 mx-5">
                 <h3 className="">Drop a Message</h3>
