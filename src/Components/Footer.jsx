@@ -3,9 +3,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-     <div>
-          <footer className="bg-[#001931] mt-7 mb-5 text-white">
-            <div className="md:flex flex-cols-1 md:justify-between items-center py-10 mb-5 md:mx-20">
+    
+          <footer className="bg-[#001931] text-white">
+            <div className="md:flex flex-cols-1 md:justify-between items-center py-10  md:mx-20">
               <div className="mb-7 items-center md:ml-0 mx-5">
                 <div className="flex items-center gap-2 mb-1">
                   <a className=" text-2xl font-bold">KidsToy</a>
@@ -62,14 +62,14 @@ const Footer = () => {
                   placeholder="Inter Your Email"
                 />
                 <div>
-                  <button className="btn hover:bg-[#0e7a81] bg-gradient-to-l from-pink-500 to-red-500 ">
+                  <button className="btn hover:bg-[#0e7a81] bg-gradient-to-l from-pink-500 to-red-500 border-none shadow-none">
                     <span className=" text-white">Subscribe</span>
                   </button>
                 </div>
               </div>
             </div>
           </footer>
-        </div>
+        
   );
 };
 

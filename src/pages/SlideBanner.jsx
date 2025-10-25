@@ -13,7 +13,7 @@ const SlideBanner = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-b from-white via-cyan-100 to-white pt-4 pb-10 mt-8 rounded-2xl shadow-lg border-1 border-gray-200">
+    <div className="relative bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 pt-4 pb-10 mt-8 rounded-2xl shadow-lg border-1 border-pink-700">
       <section className="max-w-6xl mx-auto mt-6 px-4 md:px-0 relative">
         <div className="carousel w-full rounded-2xl overflow-hidden relative">
           {/* Slide 1 */}

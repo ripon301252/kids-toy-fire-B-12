@@ -26,10 +26,10 @@ const Navbar = () => {
 
  
   return (
-    <nav className="bg-white shadow-md px-4 md:px-6 py-4 sticky top-0 z-10">
+    <nav className="backdrop-blur-lg bg-white/10 border-1 border-white/20 px-4 md:px-6 py-4 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Website Name */}
-        <div className="text-2xl font-bold text-pink-500">KidsToy</div>
+        <div className="text-2xl font-bold text-pink-600">KidsToy</div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 items-center">
@@ -39,7 +39,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-pink-500 underline font-semibold"
-                  : "text-gray-700 hover:text-pink-500"
+                  : "text-white hover:text-pink-500"
               }
             >
               Home
@@ -51,7 +51,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-pink-500 underline font-semibold"
-                  : "text-gray-700 hover:text-pink-500"
+                  : "text-white hover:text-pink-500"
               }
             >
               My Profile
@@ -75,7 +75,7 @@ const Navbar = () => {
               </div>
               <button
                 onClick={handleLogout}
-                className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500 transition"
+                className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500 transition shadow-none"
               >
                 Sign Out
               </button>
@@ -83,7 +83,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/signin"
-              className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500"
+              className="btn btn-sm bg-gradient-to-l from-pink-500 to-red-500 text-white border-pink-500 shadow-none"
             >
               Sign In
             </Link>
